@@ -7,7 +7,7 @@ DebugBird is a lightweight PHP SDK for capturing logs and crashes, sending them 
 You can install the package via Composer:
 
 ```sh
-composer require debugbird/php-sdk
+composer require debugbird/php
 ```
 
 ## Usage
