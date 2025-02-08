@@ -2,7 +2,13 @@
     "name": "debugbird/php-sdk",
     "type": "library",
     "description": "DebugBird PHP SDK",
-    "version": "0.1.0-alpha",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "DebugBird",
+            "email": "contact@debugbird.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Debugbird\\": "src/"
