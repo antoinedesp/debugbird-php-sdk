@@ -1,5 +1,5 @@
 {
-    "name": "debugbird/php-sdk",
+    "name": "debugbird/php",
     "type": "library",
     "description": "DebugBird PHP SDK",
     "license": "proprietary",
