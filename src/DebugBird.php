@@ -28,11 +28,11 @@ class DebugBird
         if (!self::$logCollectionEnabled) {
             return;
         }
+
         self::sendToAPI([
             'postType' => 'log',
             'type' => $type,
-            'content' => $content,
-            'tag' => $tag
+            'content' => $content
         ]);
     }
 
@@ -41,10 +41,18 @@ class DebugBird
         if (!self::$errorCollectionEnabled) {
             return;
         }
+
+        $content = [
+            'code' => $errno,
+            'message' => $errstr,
+            'file' => $errfile,
+            'line' => $errline
+        ];
+
         self::sendToAPI([
             'postType' => 'crash',
             'type' => 'error',
-            'content' => "$errstr in $errfile on line $errline"
+            'content' => $content
         ]);
     }
 
@@ -53,9 +61,18 @@ class DebugBird
         if (!self::$errorCollectionEnabled) {
             return;
         }
+
+        $content = [
+            'code' => $exception->getCode(),
+            'message' => $exception->getMessage(),
+            'file' => $exception->getFile(),
+            'line' => $exception->getLine(),
+            'trace' => $exception->getTrace()
+        ];
+
         self::sendToAPI([
             'postType' => 'crash',
-            'content' => $exception->getMessage() . ' in ' . $exception->getFile() . ' on line ' . $exception->getLine()
+            'content' => json_encode($content)
         ]);
     }
 
